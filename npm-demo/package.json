@@ -1,0 +1,11 @@
+{
+  "name": "be-feb-batch",
+  "version": "1.1.1",
+  "description": "basics of node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "theta-batch",
+  "license": "ISC"
+}
