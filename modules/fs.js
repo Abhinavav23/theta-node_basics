@@ -7,7 +7,8 @@ const {
   rmdir,
   writeFile,
   appendFile,
-  
+  readFile,
+  rm
 } = require("fs");
 /*
 // can create a new directory
@@ -63,13 +64,22 @@ writeFile("./userList.txt", "Abhinav ", (err) => {
     console.log("file created successfully");
   }
 });
-*/
 
 appendFile("./userList.txt", "Abhijeet ", (err) => {
   if (err) {
     console.log("Err:", err);
   } else {
     console.log("file created successfully");
+  }
+});
+*/
+
+readFile("./userList.txt", "utf-8", (err, content) => {
+  if (err) {
+    console.log(`Err: ${err}`);
+  } else {
+    // console.log("content", content.toString());
+    console.log("content", content);
   }
 });
 
