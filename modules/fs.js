@@ -65,6 +65,9 @@ writeFile("./userList.txt", "Abhinav ", (err) => {
   }
 });
 
+// if file not there --> will create a new file and write the content
+// if file is there --> will write content in the file
+// it will append the content with the existing content
 appendFile("./userList.txt", "Abhijeet ", (err) => {
   if (err) {
     console.log("Err:", err);
