@@ -1,5 +1,5 @@
 const EventEmitter = require("events");
-const {appendFile} = require("fs/promises")
+const {appendFile, access} = require("fs/promises")
 
 // on user Login i will write something in my file
 
@@ -78,6 +78,16 @@ Login.emit("failure", "Moin");
 
 // removeAllListeners --> all listeners will get removed
 
+async function accessFile(){
+    try{
+        const res = await access("failure_log11.txt");
+        console.log("accessed", res);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+accessFile();
 
 
 

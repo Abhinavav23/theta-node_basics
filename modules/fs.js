@@ -8,7 +8,9 @@ const {
   writeFile,
   appendFile,
   readFile,
-  rm
+  rm,
+  existsSync,
+  exists
 } = require("fs");
 /*
 // can create a new directory
@@ -85,5 +87,7 @@ readFile("./userList.txt", "utf-8", (err, content) => {
     console.log("content", content);
   }
 });
+
+existsSync("./")
 
 console.log("end");
