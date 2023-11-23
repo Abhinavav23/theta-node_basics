@@ -13,7 +13,7 @@ const server = http.createServer((req, response) => {
     if(req.url === "/"){
         response.writeHead(201, {"Content-Type": "text/html"})
         response.write("<h2>Home Data !!</h2>");
-    }else if(req.url === "/cart"){
+    }else if(req.url === "/cart" && req.method === "GET"){
         response.write("cart Data !!");
     }else if(req.url === "/profile"){
         response.writeHead(201, {"Content-Type": "application/json"})
