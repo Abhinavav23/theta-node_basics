@@ -1,10 +1,8 @@
 const express = require("express");
-
+const { createUser, login } = require("../controllers/userController");
 const router = express.Router();
 
-router.post("/signup", (req, res) => {
-  console.log("body", req.body);
-  res.json({ msg: "created" });
-});
+router.post("/signup", createUser);
+router.post("/login", login);
 
 module.exports = router;
