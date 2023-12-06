@@ -35,7 +35,7 @@ const createUser = (req, res) => {
 
 const login = (req, res) => {
   console.log("data", req.body);
-  const { email } = req.body;
+  const { email, password } = req.body;
   // check if the user is a valid user --> find it in DB
   // return all the values from collection when nothing passes
 
@@ -50,20 +50,29 @@ const login = (req, res) => {
   //   res.json({ msg: "error occured" });
   // })
 
-  User.findOne({email})
-  .then((data) => {
-    console.log("data", data);
-    res.json({msg: "found"})
-    // if data is present 
+  User.findOne({ email })
+    .then((data) => {
+      console.log("data", data);
+      if (data) {
+        if(data.password === password){
+          res.json({ message: "login successful" });
+        }else{
+          res.json({ error: "wrong password" });
+        }
+      } else {
+        res.json({ error: "user not found" });
+      }
+
+      // if data is present
       // --> check for password --> if password is correct ---> respond with success
       // otherwise we can respond wrong password
 
-    // otherwise --> return response saying no user found
-  })
-  .catch((err) => {
-    console.log("err", err);
-    res.json({ msg: "error occured" });
-  })
+      // otherwise --> return response saying no user found
+    })
+    .catch((err) => {
+      // console.log("err", err);
+      res.json({ msg: "error occured" });
+    });
 };
 
 module.exports = { createUser, login };
