@@ -12,6 +12,7 @@ const UserSchema = new Schema({
 const User = mongoose.model("users", UserSchema)
 
 module.exports = User
+
 // CRUD operations
 // Schema --> structure for documents
 // model --> created using collection name and schema and allows us to perform opearations
